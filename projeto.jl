@@ -60,14 +60,12 @@ y₂ = y₁ - l₂ * cos.(θ₂)
 l = l₁ + l₂
 
 skip = div(n,100)
-#tail = skip * 5
 for i = 1:skip:n
-    scatter([x₁[i], x₂[i]], [y₁[i], y₂[i]], m=(stroke(1,:gray),:lightblue,10))
-    #plot!(x₂[i-tail:i], y₂[i-tail:i])
-    plot!([0; x₁[i]; x₂[i]], [0; y₁[i]; y₂[i]])
+    scatter([x₁[i], x₂[i]], [y₁[i], y₂[i]], m=(stroke(1,:black),:black,10))
+    plot!([0; x₁[i]; x₂[i]], [0; y₁[i]; y₂[i]], c=:black)
     xlims!(-1.2 * l, 1.2 * l)
     ylims!(-1.2 * l, 1.2 * l)
 
     frame(anim)
 end
-#gif(anim, "pendulo.gif",fps=24)
+gif(anim, "pendulo.gif",fps=24)
